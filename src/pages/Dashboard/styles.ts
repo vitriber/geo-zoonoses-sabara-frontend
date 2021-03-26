@@ -28,7 +28,7 @@ export default StyleSheet.create({
   },
 
   footerText: {
-    width: 200,
+    width: 250,
     color: "#8fa7b3",
   },
 

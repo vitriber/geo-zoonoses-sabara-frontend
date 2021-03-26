@@ -8,27 +8,15 @@ import MapView, {
   PROVIDER_GOOGLE,
   Region,
 } from "react-native-maps";
-import Icon from 'react-native-vector-icons/Feather';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
 import Profile from '../Profile';
 
 import styles, {
   Container,
-  Header,
-  HeaderTitle,
-  UserName,
-  ProfileButton,
-  UserAvatar,
-  ProvidersList,
-  ProvidersListTitle,
-  ProviderContainer,
-  ProviderAvatar,
-  ProviderInfo,
-  ProviderName,
-  ProviderMeta,
-  ProviderMetaText,
 } from './styles';
+import Icon from 'react-native-vector-icons/MaterialIcons'
+Icon.loadFont();
 
 export interface Provider {
   id: string;
@@ -36,9 +24,8 @@ export interface Provider {
   avatar_url: string;
 }
 
-const Dashboard: React.FC = () => {
-  const [providers, setProviders] = useState<Provider[]>([]);
-
+const Dashboard: React.FC = ({ navigation }) => {
+  //const [providers, setProviders] = useState<Provider[]>([]);
   //const { user } = useAuth();
   //const { navigate } = useNavigation();
   const [region, setRegion] = useState<Region>();
@@ -82,13 +69,12 @@ const Dashboard: React.FC = () => {
       ></MapView>
 
       <View style={styles.footer}>
+        <Icon size={25} name="menu" onPress={() => navigation.openDrawer()}/>
         <TextInput
           placeholder={`Procurar focos`}
           style={styles.footerText}
         />
-
-        <RectButton style={styles.searchUserButton}>
-        </RectButton>
+         <Icon size={25} name="search" onPress={() => navigation.openDrawer()}/>
       </View>
 
     </Container>
