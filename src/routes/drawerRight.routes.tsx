@@ -7,7 +7,6 @@ const Drawer = createDrawerNavigator();
 const DrawerRoutes: React.FC = () => (
   <Drawer.Navigator
     drawerPosition="right"
-    openByDefault
   >
     <Drawer.Screen name="LeftDrawer" component={DrawerLeftRoutes} />
   </Drawer.Navigator>

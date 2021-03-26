@@ -1,35 +1,26 @@
 import * as React from 'react';
-import { Button, View } from 'react-native';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import AppRoutes from './app.routes';
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => {}}
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
-
-function NotificationsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-    </View>
-  );
-}
+import CreateProperty from '../pages/CreateProperty';
+import Property from '../pages/Property';
+import EpidemiologicalWeek from '../pages/EpidemiologicalWeek';
+import DrawerLeft from '../components/DrawerLeft';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerRoutes: React.FC = () => (
   <Drawer.Navigator
     initialRouteName="Home"
+    drawerContent={props => <DrawerLeft {...props} />}
   >
     <Drawer.Screen name="Home" component={AppRoutes} />
-    <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+    <Drawer.Screen name="Meus Registros" component={Property} />
+    <Drawer.Screen
+      name="Semana Epidemiológica"
+      component={EpidemiologicalWeek}
+    />
+    <Drawer.Screen name="Novo Registro" component={CreateProperty} />
   </Drawer.Navigator>
 );
 
