@@ -9,6 +9,7 @@ import MapView, {
   Region,
 } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { RectButton } from 'react-native-gesture-handler';
 import { fetchUserGithub, fetchLocalMapBox } from '../../services/api';
 
 import styles, { Container } from './styles';
@@ -62,7 +63,7 @@ const Dashboard: React.FC = ({ navigation }: any) => {
   }
 
   useEffect(() => {
-    // getCurrentPosition();
+    getCurrentPosition();
   }, []);
 
   function handleOpenGithub(url: string) {
@@ -156,7 +157,9 @@ const Dashboard: React.FC = ({ navigation }: any) => {
       <View style={styles.footer}>
         <Icon size={25} name="menu" onPress={() => navigation.openDrawer()} />
         <TextInput placeholder="Procurar focos" style={styles.footerText} />
-        <Icon size={25} name="search" onPress={() => navigation.openDrawer()} />
+        <RectButton style={styles.searchUserButton} onPress={handleSearchUser}>
+          <Icon size={25} name="search" />
+        </RectButton>
       </View>
     </Container>
   );

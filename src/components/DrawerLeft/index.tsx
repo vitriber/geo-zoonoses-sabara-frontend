@@ -24,10 +24,11 @@ const DrawerLeft = (props: DrawerContentComponentProps): React.ReactElement => {
     <Container>
       <Header>
         <HeaderBody>
-          <NameUser>Vitor</NameUser>
           <TitleUser>Bem-Vindo</TitleUser>
+          <NameUser>Vitor</NameUser>
           <DrawerItem
             label="Meus Registros"
+            labelStyle={{ color: 'white' }}
             onPress={() => navigation.navigate('Meus Registros')}
           />
         </HeaderBody>

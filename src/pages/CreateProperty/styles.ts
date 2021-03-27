@@ -24,6 +24,7 @@ export const HeaderTitle = styled.Text`
 
 export const Content = styled.ScrollView`
   padding: 20px;
+  flex: 0.9;
 `;
 
 export const Title = styled.Text`
@@ -35,20 +36,20 @@ export const Title = styled.Text`
 `;
 
 export const InputLocalidade = styled.TextInput`
-  border-width: 1;
+  border-width: 1px;
   border-color: #000000;
   background-color: #f2f2f2;
 `;
 
 export const InputQuarteirao = styled.TextInput`
-  border-width: 1;
+  border-width: 1px;
   border-color: #000000;
   background-color: #f2f2f2;
 `;
 
 export const Input = styled.TextInput`
   margin-top: 10;
-  border-width: 1;
+  border-width: 1px;
   border-color: #000000;
   background-color: #f2f2f2;
 `;
@@ -60,9 +61,24 @@ export const Select = styled.TextInput`
   background-color: #f2f2f2;
 `;
 
-export const Button = styled.Button`
-  background: #8c683b;
+export const Footer = styled.View`
+  flex: 0.1;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  padding-top: 20px;
+`;
+
+export const Button = styled(RectButton)`
+  background: #8c683b;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: center;
+  margin: 0 80px 24px;
+`;
+
+export const ButtonText = styled.Text`
+  font-family: 'RobotoSlab-Medium';
+  font-size: 15px;
+  color: #ffff;
 `;

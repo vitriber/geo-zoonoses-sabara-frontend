@@ -10,7 +10,9 @@ import {
   Title,
   Input,
   Select,
+  Footer,
   Button,
+  ButtonText,
 } from './styles';
 
 const CreateProperty: React.FC = ({ navigation }: any) => {
@@ -82,7 +84,14 @@ const CreateProperty: React.FC = ({ navigation }: any) => {
         <Title> Observações </Title>
         <Input> Insira aqui... </Input>
       </Content>
-      <Button onPress={() => navigation.goBack()} title="Voltar para busca" />
+      <Footer>
+        <Button onPress={() => navigation.goBack()}>
+          <ButtonText>Voltar</ButtonText>
+        </Button>
+        <Button onPress={() => navigation.goBack()}>
+          <ButtonText>Salvar</ButtonText>
+        </Button>
+      </Footer>
     </Container>
   );
 };
