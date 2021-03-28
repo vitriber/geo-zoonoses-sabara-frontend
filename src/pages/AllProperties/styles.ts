@@ -24,6 +24,7 @@ export const HeaderTitle = styled.Text`
 
 export const Content = styled.ScrollView`
   padding: 20px;
+  flex: 0.9;
 `;
 
 export const Title = styled.Text`
@@ -35,7 +36,7 @@ export const Title = styled.Text`
 `;
 
 export const PropertyList = styled.View`
-  margin-top: 10;
+  margin-top: 10px;
   border-width: 1;
   padding: 15px;
   border-color: #000000;
@@ -49,9 +50,24 @@ export const Select = styled.TextInput`
   background-color: #f2f2f2;
 `;
 
-export const Button = styled.Button`
-  background: #8c683b;
+export const Footer = styled.View`
+  flex: 0.1;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  padding-top: 20px;
+`;
+
+export const Button = styled(RectButton)`
+  background: #8c683b;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: center;
+  margin: 0 80px 24px;
+`;
+
+export const ButtonText = styled.Text`
+  font-family: 'RobotoSlab-Medium';
+  font-size: 15px;
+  color: #ffff;
 `;

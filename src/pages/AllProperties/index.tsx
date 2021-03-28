@@ -1,4 +1,5 @@
-import React from 'react';
+import { useNavigation } from '@react-navigation/core';
+import React, { useCallback } from 'react';
 
 import {
   Container,
@@ -8,9 +9,17 @@ import {
   PropertyList,
   Title,
   Button,
+  Footer,
+  ButtonText,
 } from './styles';
 
 const AllProperties: React.FC = ({ navigation }: any) => {
+  const { navigate } = useNavigation();
+
+  const navigateToProperty = useCallback(() => {
+    navigate('Property');
+  }, [navigate]);
+
   return (
     <Container>
       <Header>
@@ -35,7 +44,11 @@ const AllProperties: React.FC = ({ navigation }: any) => {
           <Title>Situação da Atividade: Aprovada</Title>
         </PropertyList>
       </Content>
-      <Button onPress={() => navigation.goBack()} title="Voltar para busca" />
+      <Footer>
+        <Button onPress={() => navigation.goBack()}>
+          <ButtonText>Voltar</ButtonText>
+        </Button>
+      </Footer>
     </Container>
   );
 };

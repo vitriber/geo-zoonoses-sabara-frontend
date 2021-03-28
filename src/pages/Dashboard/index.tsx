@@ -1,33 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect, useState } from 'react';
 import Geolocation from '@react-native-community/geolocation';
-import { Alert, Linking, Text, View } from 'react-native';
-import MapView, {
-  Callout,
-  Marker,
-  PROVIDER_GOOGLE,
-  Region,
-} from 'react-native-maps';
+import { Alert, View } from 'react-native';
+import MapView, { Marker, PROVIDER_GOOGLE, Region } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import IconMap from 'react-native-vector-icons/Fontisto';
 import { RectButton } from 'react-native-gesture-handler';
-import { fetchUserGithub, fetchLocalMapBox } from '../../services/api';
 
 import styles, { Container } from './styles';
 import { TextInput } from '../../components/Input/styles';
 
 Icon.loadFont();
-
-interface Dev {
-  id: number;
-  avatar_url: string;
-  name: string;
-  bio: string;
-  login: string;
-  location: string;
-  latitude?: number;
-  longitude?: number;
-  html_url: string;
-}
 
 const initialRegion = {
   latitude: -19.9541866,
@@ -38,10 +21,10 @@ const initialRegion = {
 
 const Dashboard: React.FC = ({ navigation }: any) => {
   // const { user } = useAuth();
-  // const { navigate } = useNavigation();
-  const [devs, setDevs] = useState<Dev[]>([]);
-  const [username, setUsername] = useState('');
+  const { navigate } = useNavigation();
   const [region, setRegion] = useState<Region>();
+
+  const [location, setLocation] = useState(false);
 
   function getCurrentPosition() {
     Geolocation.getCurrentPosition(
@@ -62,102 +45,86 @@ const Dashboard: React.FC = ({ navigation }: any) => {
     );
   }
 
+  const navigateToProfile = useCallback(() => {
+    navigate('Property');
+  }, [navigate]);
+
   useEffect(() => {
-    getCurrentPosition();
+    // getCurrentPosition();
   }, []);
 
-  function handleOpenGithub(url: string) {
-    Linking.openURL(url);
-  }
-
-  async function handleSearchUser() {
-    let dev: Dev;
-
-    if (!username) return;
-
-    const githubUser = await fetchUserGithub(username);
-
-    if (!githubUser || !githubUser.location) {
-      Alert.alert(
-        'Ops!',
-        'Usuário não encontrado ou não tem a localização definida no Github',
-      );
-      return;
-    }
-
-    const localMapBox = await fetchLocalMapBox(githubUser.location);
-
-    if (!localMapBox || !localMapBox.features[0].center) {
-      Alert.alert(
-        'Ops!',
-        'Erro ao converter a localidade do usuário em coordenadas geográficas!',
-      );
-      return;
-    }
-
-    const [longitude, latitude] = localMapBox.features[0].center;
-
-    dev = {
-      ...githubUser,
-      latitude,
-      longitude,
-    };
-
-    setRegion({
-      latitude,
-      longitude,
-      latitudeDelta: 3,
-      longitudeDelta: 3,
-    });
-
-    const devAlreadyExists = dev && devs.find(user => user.id === dev.id);
-
-    if (devAlreadyExists) return;
-
-    setDevs([...devs, dev]);
-    setUsername('');
+  function handleShowLocation() {
+    setLocation(true);
   }
 
   return (
     <Container>
       <MapView
+        zoomEnabled
         provider={PROVIDER_GOOGLE}
         style={styles.map}
         region={{
-          latitude: -19.9544975,
-          longitude: -44.0098972,
+          latitude: -19.8900372,
+          longitude: -43.8107916,
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         }}
         initialRegion={initialRegion}
       >
-        {devs.map(dev => (
-          <Marker
-            key={dev.id}
-            image={{ uri: `${dev.avatar_url}&s=120` }}
-            calloutAnchor={{
-              x: 2.9,
-              y: 0.8,
-            }}
-            coordinate={{
-              latitude: Number(dev.latitude),
-              longitude: Number(dev.longitude),
-            }}
-          >
-            <Callout tooltip onPress={() => handleOpenGithub(dev.html_url)}>
-              <View style={styles.calloutContainer}>
-                <Text style={styles.calloutText}>{dev.name}</Text>
-                <Text style={styles.calloutSmallText}>{dev.bio}</Text>
-              </View>
-            </Callout>
-          </Marker>
-        ))}
+        {location && (
+          <>
+            <Marker
+              onPress={navigateToProfile}
+              coordinate={{ latitude: -19.88876, longitude: -43.8072727 }}
+            >
+              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
+            </Marker>
+
+            <Marker
+              onPress={navigateToProfile}
+              coordinate={{ latitude: -19.8879236, longitude: -43.8075518 }}
+            >
+              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
+            </Marker>
+
+            <Marker
+              onPress={navigateToProfile}
+              coordinate={{ latitude: -19.8897178, longitude: -43.8068386 }}
+            >
+              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
+            </Marker>
+
+            <Marker
+              onPress={navigateToProfile}
+              coordinate={{ latitude: -19.8894595, longitude: -43.8090232 }}
+            >
+              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
+            </Marker>
+
+            <Marker
+              onPress={navigateToProfile}
+              coordinate={{ latitude: -19.891167, longitude: -43.807542 }}
+            >
+              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
+            </Marker>
+
+            <Marker
+              onPress={navigateToProfile}
+              coordinate={{ latitude: -19.8871224, longitude: -43.811116 }}
+            >
+              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
+            </Marker>
+          </>
+        )}
       </MapView>
 
       <View style={styles.footer}>
         <Icon size={25} name="menu" onPress={() => navigation.openDrawer()} />
         <TextInput placeholder="Procurar focos" style={styles.footerText} />
-        <RectButton style={styles.searchUserButton} onPress={handleSearchUser}>
+        <RectButton
+          style={styles.searchUserButton}
+          onPress={handleShowLocation}
+        >
           <Icon size={25} name="search" />
         </RectButton>
       </View>

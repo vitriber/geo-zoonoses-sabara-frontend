@@ -8,6 +8,8 @@ import {
   PropertyList,
   Title,
   Button,
+  Footer,
+  ButtonText,
 } from './styles';
 
 const EpidemiologicalWeek: React.FC = ({ navigation }: any) => {
@@ -35,7 +37,11 @@ const EpidemiologicalWeek: React.FC = ({ navigation }: any) => {
           <Title>Situação da Atividade: Em Atividade</Title>
         </PropertyList>
       </Content>
-      <Button onPress={() => navigation.goBack()} title="Voltar para busca" />
+      <Footer>
+        <Button onPress={() => navigation.goBack()}>
+          <ButtonText>Voltar</ButtonText>
+        </Button>
+      </Footer>
     </Container>
   );
 };

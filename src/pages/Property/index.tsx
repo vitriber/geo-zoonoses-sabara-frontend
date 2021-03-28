@@ -7,6 +7,8 @@ import {
   Content,
   Title,
   Button,
+  Footer,
+  ButtonText,
 } from './styles';
 
 const Property: React.FC = ({ navigation }: any) => {
@@ -58,7 +60,14 @@ const Property: React.FC = ({ navigation }: any) => {
         <Title>Imóvel Problemático</Title>
         <Title> Observações </Title>
       </Content>
-      <Button onPress={() => navigation.goBack()} title="Voltar para busca" />
+      <Footer>
+        <Button onPress={() => navigation.goBack()}>
+          <ButtonText>Voltar</ButtonText>
+        </Button>
+        <Button onPress={() => navigation.goBack()}>
+          <ButtonText>Editar</ButtonText>
+        </Button>
+      </Footer>
     </Container>
   );
 };
