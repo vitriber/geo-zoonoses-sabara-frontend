@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "Zoonoses",
-=======
-  "name": "zoonoses-sabara",
->>>>>>> 7c3e0acc9d3233c60610cae246e7f660edf38415
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -33,10 +29,7 @@
     "jetifier": "^1.6.6",
     "react": "17.0.1",
     "react-native": "0.64.0",
-<<<<<<< HEAD
     "react-native-eject": "^0.1.2",
-=======
->>>>>>> 7c3e0acc9d3233c60610cae246e7f660edf38415
     "react-native-gesture-handler": "^1.8.0",
     "react-native-image-picker": "git + https://github.com/martin-przystalka/react-native-image-picker.git#develop ",
     "react-native-iphone-x-helper": "^1.2.1",
@@ -92,7 +85,3 @@
     ]
   }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 7c3e0acc9d3233c60610cae246e7f660edf38415
