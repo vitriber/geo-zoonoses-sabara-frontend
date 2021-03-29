@@ -29,6 +29,13 @@ build/
 local.properties
 *.iml
 
+<<<<<<< HEAD
+=======
+# Visual Studio Code
+#
+.vscode/
+
+>>>>>>> 7c3e0acc9d3233c60610cae246e7f660edf38415
 # node.js
 #
 node_modules/
@@ -57,3 +64,9 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+<<<<<<< HEAD
+=======
+
+/android
+/ios
+>>>>>>> 7c3e0acc9d3233c60610cae246e7f660edf38415
