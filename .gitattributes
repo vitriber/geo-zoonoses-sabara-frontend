@@ -1,7 +1,3 @@
-<<<<<<< HEAD
 # Windows files should use crlf line endings
 # https://help.github.com/articles/dealing-with-line-endings/
 *.bat text eol=crlf
-=======
-*.pbxproj -text
->>>>>>> 7c3e0acc9d3233c60610cae246e7f660edf38415

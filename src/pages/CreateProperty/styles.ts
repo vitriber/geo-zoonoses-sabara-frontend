@@ -48,7 +48,7 @@ export const InputQuarteirao = styled.TextInput`
 `;
 
 export const Input = styled.TextInput`
-  margin-top: 10;
+  margin-top: 10px;
   border-width: 1px;
   border-color: #000000;
   background-color: #f2f2f2;

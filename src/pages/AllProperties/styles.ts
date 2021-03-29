@@ -44,8 +44,8 @@ export const PropertyList = styled.View`
 `;
 
 export const Select = styled.TextInput`
-  margin-top: 10;
-  border-width: 1;
+  margin-top: 10px;
+  border-width: 1px;
   border-color: #000000;
   background-color: #f2f2f2;
 `;
