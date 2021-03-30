@@ -79,41 +79,6 @@ const Dashboard: React.FC = ({ navigation }: any) => {
             >
               <IconMap size={30} name="map-marker-alt" color="#8C683B" />
             </Marker>
-
-            <Marker
-              onPress={navigateToProfile}
-              coordinate={{ latitude: -19.8879236, longitude: -43.8075518 }}
-            >
-              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
-            </Marker>
-
-            <Marker
-              onPress={navigateToProfile}
-              coordinate={{ latitude: -19.8897178, longitude: -43.8068386 }}
-            >
-              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
-            </Marker>
-
-            <Marker
-              onPress={navigateToProfile}
-              coordinate={{ latitude: -19.8894595, longitude: -43.8090232 }}
-            >
-              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
-            </Marker>
-
-            <Marker
-              onPress={navigateToProfile}
-              coordinate={{ latitude: -19.891167, longitude: -43.807542 }}
-            >
-              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
-            </Marker>
-
-            <Marker
-              onPress={navigateToProfile}
-              coordinate={{ latitude: -19.8871224, longitude: -43.811116 }}
-            >
-              <IconMap size={30} name="map-marker-alt" color="#8C683B" />
-            </Marker>
           </>
         )}
       </MapView>
