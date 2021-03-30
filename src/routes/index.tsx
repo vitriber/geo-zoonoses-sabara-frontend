@@ -17,9 +17,7 @@ const Routes: React.FC = () => {
     );
   }
 
-  return (
-      <Navigator />
-  );
+  return <AuthRoutes />;
 };
 
 export default Routes;

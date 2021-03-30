@@ -37,7 +37,7 @@ export const Title = styled.Text`
 
 export const PropertyList = styled.View`
   margin-top: 10px;
-  border-width: 1;
+  border-width: 1px;
   padding: 15px;
   border-color: #000000;
   background-color: #f9f3f7;
